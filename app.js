@@ -9,7 +9,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var pg = require('pg');
-var conString = "postgres://mtsxnzlbsyseoo:Nc8CeNsHm2t6BQ_2Fl_wEZFlP9@ec2-54-225-101-199.compute-1.amazonaws.com:5432/da3r2ludb93mde";
+var conString = process.env.DATABASE_URL;
 
 var app = express();
 
