@@ -51,7 +51,7 @@ app.get('/users', function(req, res){
 			client.end();
 		});
 	});
-	res.send("respond with a resource");
+	res.send("respond with a resource" + result.rows[0].username);
 });
 
 http.createServer(app).listen(app.get('port'), function(){
