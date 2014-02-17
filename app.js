@@ -8,6 +8,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var pg = require('pg');
+var conString = "postgres://mtsxnzlbsyseoo:Nc8CeNsHm2t6BQ_2Fl_wEZFlP9@ec2-54-225-101-199.compute-1.amazonaws.com:5432/da3r2ludb93mde";
 
 var app = express();
 
@@ -35,4 +37,19 @@ app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+var client = new pg.Client(conString);
+client.connect(function(err) {
+	if(err) {
+		return console.error('could not connect to postgres', err);
+	}
+	client.query('SELECT * FROM users', function(err, result) {
+		if(err) {
+			return console.error('error running query', err);
+		}
+		console.log(result.rows[0]);
+		//output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+		client.end();
+	});
 });
