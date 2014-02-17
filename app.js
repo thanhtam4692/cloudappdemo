@@ -32,24 +32,30 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+var client = new pg.Client(conString);
+
+
 app.get('/', routes.index);
-app.get('/users', user.list);
+
+app.get('/users', function(req, res){
+	client.connect(function(err) {
+		if(err) {
+			return console.error('could not connect to postgres', err);
+		}
+		client.query('SELECT * FROM users', function(err, result) {
+			if(err) {
+				return console.error('error running query', err);
+			}
+			console.log('Result: ' + result.rows[0].username);
+			//output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+			client.end();
+		});
+	});
+	res.send("respond with a resource");
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var client = new pg.Client(conString);
-client.connect(function(err) {
-	if(err) {
-		return console.error('could not connect to postgres', err);
-	}
-	client.query('SELECT * FROM users', function(err, result) {
-		if(err) {
-			return console.error('error running query', err);
-		}
-		console.log('Result: ' + result.rows[0]);
-		//output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-		client.end();
-	});
-});
+
