@@ -41,11 +41,10 @@ app.get('/', function(req, res){
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query('SELECT * FROM users', function(err, result) {
 			if(err) return console.error(err);
-			console.log("All: " + util.inspect(result,{ showHidden: true, depth: null }));
+			//console.log("All: " + util.inspect(result,{ showHidden: true, depth: null }));
 			res.render('home.ejs', { title: 'Thanh Tam', data: result.rows });
 		});
 	});
-
 });
 
 
