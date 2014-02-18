@@ -30,10 +30,20 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+var pg = require('pg');
+
+
 app.get('/', routes.index);
 app.get('/users', function(req, res){
-
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query('SELECT * FROM users', function(err, result) {
+			done();
+			if(err) return console.error(err);
+			console.log(result.rows);
+		});
+	});
 });
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
