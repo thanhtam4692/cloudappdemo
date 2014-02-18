@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6af9aa0b-5e62-4ae2-a984-82ac242c1e5b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/home.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cloudappdemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +28,7 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="24" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.6551724" vertical-offset="390" max-vertical-offset="870">
+            <state line="26" column="56" selection-start="716" selection-end="716" vertical-scroll-proportion="0.7241379" vertical-offset="75" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -67,8 +64,8 @@
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/views/home.html" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/home.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -276,7 +273,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="24" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.6551724" vertical-offset="390" max-vertical-offset="870">
+        <state line="26" column="56" selection-start="716" selection-end="716" vertical-scroll-proportion="0.7241379" vertical-offset="75" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
