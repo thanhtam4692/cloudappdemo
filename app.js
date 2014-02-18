@@ -8,6 +8,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var util = require('util');
 
 var app = express();
 
@@ -39,9 +40,8 @@ app.get('/', function(req, res){
 	var data;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query('SELECT * FROM users', function(err, result) {
-			done();
 			if(err) return console.error(err);
-			console.log("All: " + result.rows);
+			console.log("All: " + util.inspect(result,{ showHidden: true, depth: null }));
 			res.render('home.ejs', { title: 'Thanh Tam', data: result.rows });
 		});
 	});
