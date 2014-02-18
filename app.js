@@ -33,15 +33,17 @@ if ('development' == app.get('env')) {
 var pg = require('pg');
 
 
-app.get('/', routes.index);
-app.get('/users', function(req, res){
+app.get('/', function(req, res){
+	var data;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query('SELECT * FROM users', function(err, result) {
 			done();
 			if(err) return console.error(err);
 			console.log(result.rows);
+			data = result.rows;
 		});
 	});
+	res.render('home.ejs', { title: 'Thanh Tam', data: data });
 });
 
 
