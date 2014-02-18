@@ -41,7 +41,7 @@ app.get('/', function(req, res){
 		client.query('SELECT * FROM users', function(err, result) {
 			done();
 			if(err) return console.error(err);
-			console.log(result.rows);
+			console.log("All: " + result.rows);
 			res.render('home.ejs', { title: 'Thanh Tam', data: result.rows });
 		});
 	});
