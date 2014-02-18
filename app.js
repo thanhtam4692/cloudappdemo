@@ -41,7 +41,6 @@ app.get('/', function(req, res){
 			done();
 			if(err) return console.error(err);
 			console.log(result.rows);
-			data = result.rows;
 			res.render('home.ejs', { title: 'Thanh Tam', data: result.rows });
 		});
 	});
